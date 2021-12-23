@@ -721,6 +721,9 @@ class MetaClient {
   // leadersLock_ is used to protect leadersInfo
   folly::RWSpinLock leadersLock_;
   LeaderInfo leadersInfo_;
+  // diskPartsLock_ is used to protect diskParts_;
+  kvstore::SpaceDiskPartsMap diskParts_;
+  folly::RWSpinLock diskPartsLock_;
 
   LocalCache localCache_;
   std::vector<HostAddr> addrs_;
